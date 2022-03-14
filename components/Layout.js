@@ -18,7 +18,7 @@ export default function Layout({ title, description, children }) {
     components: {
       MuiLink: {
         defaultProps: {
-          underline: 'none',
+          underline: 'none~',
         },
       },
     },
