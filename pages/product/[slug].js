@@ -21,9 +21,11 @@ import { urlFor, urlForThumbnail } from '../../utils/image';
 import { Store } from '../../utils/store';
 import axios from 'axios';
 import { useSnackbar } from 'notistack';
+import { useRouter } from 'next/router';
 
 export default function ProductScreen({ slug }) {
   const { enqueueSnackbar } = useSnackbar();
+  const router = useRouter();
   const {
     state: { cart },
     dispatch,
@@ -74,7 +76,7 @@ export default function ProductScreen({ slug }) {
     enqueueSnackbar(`${product.name} added to the cart`, {
       variant: 'success',
     });
-    // router.push('/cart');
+    router.push('/cart');
   };
 
   return (
