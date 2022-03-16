@@ -4,6 +4,13 @@ const classes = {
     minHeight: '80vh',
     height: '100vh',
   },
+  smallText: {
+    fontSize: '15px',
+  },
+  section: {
+    marginTop: '1rem',
+    marginBottom: '1rem',
+  },
   footer: {
     marginTop: '1rem',
     textAlign: 'center',
@@ -16,7 +23,7 @@ const classes = {
       color: '#ffffff',
       marginLeft: '1rem',
     },
-    position: 'fixed',
+
     top: 0,
   },
   toolbar: {
