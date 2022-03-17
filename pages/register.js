@@ -1,8 +1,8 @@
-import React, { useContext, useEffect } from 'react';
 import Layout from '../components/Layout';
 import { useForm, Controller } from 'react-hook-form';
 import NextLink from 'next/link';
 import Form from '../components/Form';
+import { useContext, useEffect } from 'react';
 import {
   Button,
   Link,
@@ -15,20 +15,20 @@ import { useSnackbar } from 'notistack';
 import axios from 'axios';
 import jsCookie from 'js-cookie';
 import { useRouter } from 'next/router';
-import { Store } from '../utils/Store';
+import { Store } from '../utils/store';
 // import { getError } from '../utils/error';
 
 export default function RegisterScreen() {
-  //   const { state, dispatch } = useContext(Store);
-  //   const { userInfo } = state;
   const router = useRouter();
   const { redirect } = router.query;
+  const { state, dispatch } = useContext(Store);
+  const { userInfo } = state;
 
-  //   useEffect(() => {
-  //     if (userInfo) {
-  //       router.push(redirect || '/');
-  //     }
-  //   }, [router, userInfo, redirect]);
+  useEffect(() => {
+    if (userInfo) {
+      router.push(redirect || '/');
+    }
+  }, [router, userInfo, redirect]);
 
   const {
     handleSubmit,
@@ -53,7 +53,7 @@ export default function RegisterScreen() {
       jsCookie.set('userInfo', JSON.stringify(data));
       router.push(redirect || '/');
     } catch (err) {
-      enqueueSnackbar(getError(err), { variant: 'error' });
+      //   enqueueSnackbar(getError(err), { variant: 'error' });
     }
   };
 

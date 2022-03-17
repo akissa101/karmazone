@@ -21,7 +21,7 @@ import jsCookie from 'js-cookie';
 
 export default function Layout({ title, description, children }) {
   const {
-    state: { darkMode, cart },
+    state: { darkMode, cart, userInfo },
     dispatch,
   } = useContext(Store);
 
@@ -97,9 +97,15 @@ export default function Layout({ title, description, children }) {
                   </Typography>
                 </Link>
               </NextLink>
-              <NextLink href="/login" passHref>
-                <Link>Login</Link>
-              </NextLink>
+              {userInfo ? (
+                <NextLink href="/profile" passHref>
+                  <Link>{userInfo.name}</Link>
+                </NextLink>
+              ) : (
+                <NextLink href="/login" passHref>
+                  <Link>Login</Link>
+                </NextLink>
+              )}
             </Box>
           </Toolbar>
         </AppBar>
