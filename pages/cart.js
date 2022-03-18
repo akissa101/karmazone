@@ -33,6 +33,7 @@ function CartScreen() {
     },
     dispatch,
   } = useContext(Store);
+  const router = useRouter();
 
   const { enqueueSnackbar } = useSnackbar();
 
