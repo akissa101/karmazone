@@ -8,12 +8,16 @@ const classes = {
   },
   main: {
     marginTop: 2,
-    minHeight: '80vh',
+    minHeight: '90vh',
   },
   footer: {
     marginTop: 1,
     textAlign: 'center',
     backgroundColor: '#203040',
+    color: '#ffffff',
+
+    bottom: 0,
+    padding: '10px',
   },
   appbar: {
     backgroundColor: '#203040',
