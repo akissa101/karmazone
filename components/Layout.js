@@ -105,6 +105,7 @@ export default function Layout({ title, description, children }) {
 
   const { enqueueSnackbar } = useSnackbar();
   const [categories, setCategories] = useState([]);
+
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -175,7 +176,7 @@ export default function Layout({ title, description, children }) {
                   </Box>
                 </ListItem>
                 <Divider light />
-                {/* {categories.map((category) => (
+                {categories.map((category) => (
                   <NextLink
                     key={category}
                     href={`/search?category=${category}`}
@@ -189,7 +190,7 @@ export default function Layout({ title, description, children }) {
                       <ListItemText primary={category}></ListItemText>
                     </ListItem>
                   </NextLink>
-                ))} */}
+                ))}
               </List>
             </Drawer>
             <Box sx={isDesktop ? classes.visible : classes.hidden}>
