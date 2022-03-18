@@ -22,6 +22,7 @@ handler.post(async (req, res) => {
       },
     },
   ];
+
   const existUser = await client.fetch(
     `*[_type == "user" && email == $email][0]`,
     {
@@ -31,6 +32,7 @@ handler.post(async (req, res) => {
   if (existUser) {
     return res.status(401).send({ message: 'Email aleardy exists' });
   }
+
   const { data } = await axios.post(
     `https://${projectId}.api.sanity.io/v1/data/mutate/${dataset}?returnIds=true`,
     { mutations: createMutations },
