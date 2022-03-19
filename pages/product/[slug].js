@@ -146,16 +146,18 @@ export default function ProductScreen({ slug }) {
                         {product.countInStock > 0 ? 'In Stock' : 'Unavialable'}
                       </Grid>
                     </Grid>
-                  </ListItem>
-                  <ListItem>
-                    <Button
-                      fullWidth
-                      variant="contained"
-                      onClick={addToCartHandler}
-                    >
-                      Add To Cart
-                    </Button>
-                  </ListItem>
+                  </ListItem>{' '}
+                  {product.countInStock > 0 && (
+                    <ListItem>
+                      <Button
+                        fullWidth
+                        variant="contained"
+                        onClick={addToCartHandler}
+                      >
+                        Add To Cart
+                      </Button>
+                    </ListItem>
+                  )}
                 </List>
               </Card>
             </Grid>

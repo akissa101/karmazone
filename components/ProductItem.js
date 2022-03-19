@@ -30,13 +30,15 @@ const ProductItem = ({ product, addToCartHandler }) => {
       </NextLink>
       <CardActions>
         <Typography>${product.price}</Typography>
-        <Button
-          size="sm"
-          color="primary"
-          onClick={() => addToCartHandler(product)}
-        >
-          Add to Cart
-        </Button>
+        {product.countInStock > 0 && (
+          <Button
+            size="sm"
+            color="primary"
+            onClick={() => addToCartHandler(product)}
+          >
+            Add to Cart
+          </Button>
+        )}
       </CardActions>
     </Card>
   );
